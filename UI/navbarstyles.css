@@ -1,0 +1,137 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: url('Images/HPsample1.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+/* Fixed navigation bar */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Initially transparent background */
+header#navbar {
+    background-color: rgba(255, 255, 255, 0); /* Transparent */
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Nav container with flexbox */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    width: 100%;
+}
+
+/* Logo on the far left */
+.logo img {
+    height: 85px; /* Adjust logo size as needed */
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+/* Navigation menu in the middle */
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 20px; /* Adds space between the menu items */
+    margin-left: auto; /* Pushes the list to the right */
+    position: relative; /* Added to position the underline */
+}
+
+/* Navigation menu */
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+.nav-list li {
+    position: relative;
+}
+
+/* Underline styling */
+.underline {
+    position: absolute;
+    height: 2px;
+    background: blue;
+    bottom: 10px; /* Position it right below the text */
+    left: 0; /* Start at the left of the parent */
+    transition: transform 0.3s ease, width 0.3s ease; /* Change to animate transform */
+}
+
+/* Navigation link styles */
+.nav-list li a {
+    text-decoration: none; /* Remove default underline */
+    color: black;
+    font-size: 18px;
+    padding: 8px 12px;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+/* Active and hover styles */
+.nav-item.active a {
+    color: blue; /* Change the color of the active item text */
+}
+
+.nav-item.active a::after {
+    background: blue; /* Color of the underline */
+    position: absolute;
+
+}
+
+.nav-item:hover a {
+    color: blue; /* Hover effect on inactive items */
+}
+
+/* Sign Up button on the far right */
+.sign-up .btn {
+    text-decoration: none;
+    background: linear-gradient(90deg,#3E3BFB, #DB1F90);
+    color: white;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    margin-right: 100px;
+    transition: all 0.3s ease; /* Smooth transition over 0.3 seconds */
+}
+
+.sign-up .btn:hover {
+    background: linear-gradient(90deg, #0056b3, #00a3cc); /* Darker gradient on hover */
+    padding: 15px 40px; /* Slightly increase padding to give a "growing" effect */
+    font-size: 20px;
+}
+
+/* Content space below the fixed navbar */
+.content {
+    margin-top: 100px; /* Space below the fixed navbar */
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* When navbar becomes opaque */
+header#navbar.scrolled {
+    background-color: rgba(255, 255, 255, 1); /* Opaque white */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+}
