@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Hosthub - Web Hosting Free Bootstrap Website Template</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="css/vendor.css">
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Google Fonts ================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500&family=Raleway:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+
+
+  <!-- script ================================================== -->
+  <script src="js/modernizr.js"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#header-nav" tabindex="0">
+
+  <!-- scroll-top section -->
+  <div id="scroll-top-btn" class="bg-white rounded-pill text-primary position-fixed">
+    <iconify-icon icon="ph:arrow-up-light" class="scroll-icon p-2 pb-0"></iconify-icon>
+  </div>
+
+  <!-- Nav Section Starts -->
+  <header id="navigation">
+    <nav class="navbar navbar-expand-lg position-absolute px-0 px-md-4 py-4 ">
+
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="index.html"><img src="images/futureforge.png" alt=""></a>
+
+        <button class="navbar-toggler text-white shadow-none" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <span>
+            <iconify-icon icon="quill:hamburger" class="navbar-icon"></iconify-icon>
+          </span>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <div class="offcanvas-body">
+            <ul class="navbar-nav container align-items-center px-5 ">
+              <li class="nav-item">
+                <a class="nav-link text-uppercase px-4 text-light">Features</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link text-uppercase px-4 text-light">Account</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-uppercase px-4 text-light">Support </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-uppercase px-4 text-light">About Us</a>
+              </li>
+
+
+
+            </ul>
+            <ul class="navbar-nav justify-content-end align-items-center mt-4 mb-2 mt-lg-0 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link text-uppercase px-5 text-light" href="#"  data-bs-toggle="modal" data-bs-target="#exampleModal" >Login </a>
+              </li>
+  
+            </ul>
+            <div class="d-flex align-items-center justify-content-center ">
+              <button type="button" class="btn btn-primary">
+                <span class="btnText">Get Started</span>
+                <span class="btnTwo">
+                  <iconify-icon icon="prime:arrow-right" class="btn-arrow"></iconify-icon>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section Starts -->
+  <section id="hero">
+    <div class="image-holder position-relative">
+      <img src="images/pattern.png" alt="banner" class="img-fluid">
+    </div>
+    <div class="hero container position-absolute  top-50 start-50 translate-middle pb-5 " data-aos="fade-up"
+      data-aos-easing="ease-in-sine">
+      <div class="row align-items-center g-5 py-5">
+        <div class=" col-lg-6">
+          <h6>Future Forge </h6>
+          <h1 class=" text-capitalize text-light my-3">Build Your Future</h1>
+          <p class="text-light mb-4">Forge your own path.</p>
+          <p class="text-light mb-4">Can't find your way? We'll guide you with our career builder in minutes. </p>
+
+          <div class="">
+
+            <button type="button" class="btn btn-primary me-3 mb-2">
+              <span class="btnText">TRY NOW</span>
+              <span class="btnTwo">
+                <iconify-icon icon="prime:arrow-right" class="btn-arrow"></iconify-icon>
+              </span>
+            </button>
+
+            <button type="button" class="btn btn-outline-primary hero-btn-outline-primary mb-2"> Learn more </button>
+          </div>
+        </div>
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img src="images/hero.png" class=" d-none d-lg-block img-fluid" alt="Bootstrap Themes" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- steps section starts  -->
+  <section id="steps">
+    <div class="container my-5 pt-5" data-aos="fade-up" data-aos-easing="ease-in-sine">
+      <h2 class="text-capitalize text-center mt-5 ">Three easy steps</h2>
+      <div class="row py-4">
+        <div class="col-md-4 mt-4">
+          <div class="step-post text-center  px-5">
+            <div class="step-icon mb-3">
+              <iconify-icon class="iconify-step" style="background: #5399F4 ;"
+                icon="mdi:download-circle-outline"></iconify-icon>
+            </div>
+            <h3 class=" ">Start by Taking the Test</h3>
+            <p class=" ">Answer our AI-powered assessment test so that we can assist a career path aligned to your interests! </p>
+          </div>
+        </div>
+        <div class="col-md-4 mt-4">
+          <div class="step-post text-center  px-5">
+            <div class="step-icon mb-3">
+              <iconify-icon class="iconify-step" style="background: #F5C037 ;"
+                icon="mdi:folder-file-outline"></iconify-icon>
+            </div>
+            <h3 class=" ">Get your Career Recommendation</h3>
+            <p class=" "> Our system will show you all the possible career path and road map for your desired job! </p>
+          </div>
+        </div>
+        <div class="col-md-4 mt-4">
+          <div class="step-post text-center  px-5">
+            <div class="step-icon mb-3">
+              <iconify-icon class="iconify-step" style="background: #F58737 ;" icon="mdi:cog-outline"></iconify-icon>
+            </div>
+            <h3 class=" ">Share your Results</h3>
+            <p class=" ">Share your results in other social media platforms to encourage others!! </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- about section starts  -->
+  <section id="about">
+    <div class="hero container my-5">
+      <div class="row  align-items-center g-5 py-5">
+        <div class="  col-10 col-sm-8 col-lg-6">
+          <img src="images/about.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy">
+        </div>
+        <div class=" col-lg-6" data-aos="fade-up" data-aos-easing="ease-in-sine">
+          <h6>Future Forge</h6>
+          <h2 class=" text-capitalize  my-3">Navigate Your Career</h2>
+          <p class="pb-5">Finding what fits you has never been easier with our Career Assessment Test </p>
+
+          <div class="">
+            <button type="button" class="btn btn-outline-primary">Take Career Assessment</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- feature section starts  -->
+  <section id="feature">
+    <div class="container py-5">
+        <h2 class="text-capitalize text-center pt-5 pb-3 my-5">FutureForge Features</h2>
+        <div class="row row-cols-2 row-cols-sm-3 pb-5" data-aos="fade-up" data-aos-easing="ease-in-sine">
+            <div class="col align-items-start pb-4">
+                <iconify-icon class="feature-icon" icon="mdi:robot"></iconify-icon>
+                <div>
+                    <h3>Personalized Career Guidance</h3>
+                    <p>Our AI-driven system analyzes your skills and preferences to suggest tailored career paths, guiding you to the most suitable options.</p>
+                </div>
+            </div>
+            <div class="col align-items-start pb-4">
+                <iconify-icon class="feature-icon" icon="mdi:chart-line"></iconify-icon>
+                <div>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Receive career recommendations backed by data analysis, trends, and industry demands, ensuring you stay ahead in your chosen field.</p>
+                </div>
+            </div>
+            <div class="col align-items-start pb-4">
+                <iconify-icon class="feature-icon" icon="mdi:shield-check"></iconify-icon>
+                <div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Your data is secure with us, and our AI recommendations are trustworthy, providing you with the best career choices based on your profile.</p>
+                </div>
+            </div>
+            <div class="col align-items-start pb-4">
+                <iconify-icon class="feature-icon" icon="mdi:cloud-sync"></iconify-icon>
+                <div>
+                    <h3>Real-Time Updates</h3>
+                    <p>Stay up-to-date with the latest career opportunities and industry trends, continuously receiving new suggestions as your skills evolve.</p>
+                </div>
+            </div>
+            <div class="col align-items-start pb-4">
+                <iconify-icon class="feature-icon" icon="mdi:lightbulb-on-outline"></iconify-icon>
+                <div>
+                    <h3>Skill Development Guidance</h3>
+                    <p>Get recommendations on courses and resources to enhance your skills, making you more competitive in your career journey.</p>
+                </div>
+            </div>
+            <div class="col align-items-start pb-4">
+                <iconify-icon class="feature-icon" icon="mdi:headphones-help"></iconify-icon>
+                <div>
+                    <h3>24/7 Support</h3>
+                    <p>Our dedicated support team is always here to assist you with any queries, helping you make informed career decisions anytime.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- about2 section starts  -->
+  <section id="about2">
+    <div class="hero container  py-5 my-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="  col-10 col-sm-8 col-lg-6">
+          <img src="images/about2.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy">
+        </div>
+        <div class=" col-lg-6" data-aos="fade-up" data-aos-easing="ease-in-sine">
+          <h6>Ready for</h6>
+          <h2 class=" text-capitalize  my-3">Career Analysis</h2>
+          <p class="mb-5">Discover patterns and possible career paths for you.
+            Our Career Analysis feature provides a comprehensive evaluation of your career journey by analyzing your work experience, historical career data, and future aspirations. </p>
+
+          <div class="">
+            <button type="button" class="btn btn-outline-primary">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+ <!-- FAQ Section Starts -->
+<section id="faq">
+  <div class="container my-5 py-5">
+      <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+      <div class="accordion col-md-10 offset-md-1" id="accordionPanelsStayOpenExample">
+
+          <div class="accordion-item mt-3" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-delay="0">
+              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseOne">
+                      How does FutureForge provide personalized career suggestions?
+                  </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                  <div class="accordion-body">
+                      <p>FutureForge uses advanced AI algorithms to analyze your skills, preferences, and career goals. It considers industry trends and data to generate career suggestions that are tailored specifically for you.</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item mt-3" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-delay="200">
+              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseTwo">
+                      What kind of data does FutureForge use for its recommendations?
+                  </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingTwo">
+                  <div class="accordion-body">
+                      <p>Our AI platform leverages a combination of your personal inputs, global job market trends, skills demand, and industry data to provide data-driven career recommendations. All data is handled with the utmost confidentiality.</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item mt-3" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-delay="400">
+              <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseThree">
+                      Can FutureForge help me identify skills I need to develop?
+                  </button>
+              </h2>
+              <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingThree">
+                  <div class="accordion-body">
+                      <p>Yes, FutureForge not only suggests potential career paths but also provides recommendations on specific skills and courses you need to improve your qualifications and stay competitive in your chosen field.</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item mt-3" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-delay="600">
+              <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseFour">
+                      How secure is my data on FutureForge?
+                  </button>
+              </h2>
+              <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingFour">
+                  <div class="accordion-body">
+                      <p>We prioritize your privacy and data security. All information shared with FutureForge is encrypted and securely stored, ensuring that your data remains confidential and protected from unauthorized access.</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item mt-3" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-delay="800">
+              <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseFive">
+                      Is FutureForge suitable for all career levels?
+                  </button>
+              </h2>
+              <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingFive">
+                  <div class="accordion-body">
+                      <p>Yes, FutureForge is designed to help individuals at all career stages—from students and fresh graduates to professionals seeking career growth or a complete career shift.</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item mt-3" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-delay="900">
+              <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
+                      aria-controls="panelsStayOpen-collapseSix">
+                      Does FutureForge provide real-time updates on job opportunities?
+                  </button>
+              </h2>
+              <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse"
+                  aria-labelledby="panelsStayOpen-headingSix">
+                  <div class="accordion-body">
+                      <p>Yes, FutureForge offers real-time updates on job opportunities and industry trends, helping you stay informed about the latest openings that match your skills and career goals.</p>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</section>
+
+
+  <!-- Action Section Starts -->
+  <section id="action">
+    <div class="container my-5 py-5">
+      <div class="text-center py-5 " data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-delay="600">
+        <h6>Free trial</h6>
+        <h1 class=" text-capitalize mb-3">Try FutureForge NOW!!!</h1>
+        <p class="">The first of its kind, AI-Driven Career Suggestion Web Application </p>
+        <div class="">
+
+
+          <button type="button" class="btn btn-primary">
+            <span class="btnText">Get started now</span>
+            <span class="btnTwo">
+              <iconify-icon icon="prime:arrow-right" class="btn-arrow"></iconify-icon>
+            </span>
+          </button>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section Starts -->
+  <section id="footer">
+    <div class="container footer-container mt-5">
+      <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 my-5 py-5 ">
+
+        <div class="col-md-3 ">
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize ">Company</a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize ">About us </a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize ">Our team </a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize ">Terms & Condition </a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize ">Privacy Policy </a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize ">Careers </a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize ">Cloud computing </a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 ">
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize">Information</a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize">Recommend</a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize">Online guide</a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize">Network</a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize">Affiliate</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 ">
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize">Support </a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize">Help center</a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize">security</a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize">contact</a></li>
+            <li class="nav-item mb-2"><a href="#" class="footer-link text-capitalize">Our info</a></li>
+          </ul>
+        </div>
+
+        <div class=" col-md-3 mt-5 mt-md-0 ">
+          <img src="images/futureforge.png" alt="">
+          <p class="my-4">HTML Website By: Group 8</p>
+        </div>
+
+      </footer>
+    </div>
+
+
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center border-top"></footer>
+
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 pt-4">
+        <div class="col-md-10 d-flex align-items-center">
+          <a href="#" class="pb-2">General terms & conditions</a>
+
+        </div>
+        <div class="col-md-2 d-flex align-items-center justify-content-between">
+          <a href="#" class="social-link" target="_blank"><iconify-icon icon="mdi:facebook"></iconify-icon></a>
+          <a href="#" class="social-link" target="_blank"><iconify-icon icon="mdi:instagram"></iconify-icon></a>
+          <a href="#" class="social-link" target="_blank"><iconify-icon icon="mdi:twitter"></iconify-icon></a>
+          <a href="#" class="social-link" target="_blank"><iconify-icon icon="mdi:linkedin"></iconify-icon></a>
+          <a href="#" class="social-link" target="_blank"><iconify-icon icon="mdi:youtube"></iconify-icon></a>
+
+        </div>
+
+      </footer>
+    </div>
+  </section>
+
+
+  <!-- script ================================================== -->
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+
+
+
+
+</body>
+
+</html>
