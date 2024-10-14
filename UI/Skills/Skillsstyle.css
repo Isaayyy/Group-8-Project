@@ -1,0 +1,140 @@
+* { 
+    margin:0;
+    padding:0; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.skills {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+}
+
+.skills-header {
+    border-bottom: 3px solid #7966C5;
+    margin: 0 50px;   
+}
+
+.skills-header-container {
+    display: flex;
+    align-items: flex-end;
+    width: 100%; 
+}
+
+.skills-header-container h1 {
+    font-size: 80px;
+    color: #DB1F90;
+}
+
+.insights {
+    text-align: center;
+    padding: 5px 20px;
+    background-color: #36AD5E;
+    border-radius: 50px;
+    margin-left: 10px;
+    margin-bottom: 18px;
+}
+
+.insights p {
+    color: white;
+    font-weight: bolder;
+}
+
+.skills-container {
+    flex-grow: 1;
+    padding: 10px;
+    margin: 10px 30px;
+}
+
+.analyze-container {
+    margin: 20px 40px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.analyze-container h2 {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.insight-container {
+    top: 30px;
+    align-items: center;
+    position: absolute;
+    display: inline-flex;
+    top: 110px; 
+    z-index: 11;
+}
+
+.insight-container h2 {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #F29D38;
+}
+
+.skill-button {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 5px 50px;
+    color: grey;
+    background-color: #D9D9D9;
+    border-radius: 50px;
+    z-index: 5;
+    position: absolute;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.overview-container {
+    display: flex;
+    margin-top: 210px;
+    padding: 0 30px;
+}
+
+.description-container {
+    flex-grow: 1;
+    margin-right: 60px;
+    margin-left: 60px;
+}
+
+.description-container p {
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin: 20px 0;
+    color: #8A8A8A;
+}
+
+.triangle-button {
+    
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid #8B9DFD; /* Green triangle color */
+    cursor: pointer;
+    position: relative;
+}
+
+.triangle-button:before {
+    content: "Click";
+    position: absolute;
+    top: -55px; /* Adjust the text position */
+    left: -18px; /* Adjust to center the text */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.triangle-button:hover {
+    border-bottom-color: #45a049; /* Darker shade on hover */
+}
+
+.center-container {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    margin: 30px 0;
+}
