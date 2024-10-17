@@ -166,7 +166,8 @@
   transition: transform 0.2s ease-in-out, margin-right 0.2s ease-in-out;
   min-height: 100vh; /* Ensure it covers full height */
   transform: translateX(2rem); /* Shift main content to the right */
-  margin: 0rem;
+  margin: 0;
+  margin-right: 2vw;
 
 }
 
@@ -209,9 +210,9 @@ border-bottom-right-radius: 100px;
     bottom: 0; /* Align image to the bottom */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center the image */
-    width: 75px; /* Adjust width if necessary */
+    width: 70px; /* Adjust width if necessary */
     height: auto; /* Keep the aspect ratio */
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     transition: transform 0.3s ease;
   transform-origin: center; /* Set the transform origin to the center */
   }
@@ -253,16 +254,17 @@ transform-origin: center; /* Set the transform origin to the center */
 user-select: none; /* Disable text selection */
 outline: none; /* Remove focus outline */
 
+
 }
 
 .nav-item i.fa-circle {
-  font-size: 0.5rem; /* Adjust the size of the circles */
-  color: white; /* Color of the circles */
-  display: block; /* Make the icon a block element */
-  margin: 1.5rem; /* Center the icon within the nav-item */
-  pointer-events: none;
+    font-size: 0.5rem; /* Adjust the size of the circles */
+    color: white; /* Color of the circles */
+    display: inline-block;
+    margin: 1.5rem; /* Center the icon within the nav-item */
+    pointer-events: none;
 
-
+  
 }
 
 .nav-item i {
@@ -302,6 +304,7 @@ font-size: 0.8rem; /* Text under the icon */
 
 .logo-container.active {
 left: 4.2rem; /* Center the container horizontally */
+transition: left 0.3s ease;
 }
 
 .logo-container {
@@ -312,7 +315,8 @@ left: 4.2rem; /* Center the container horizontally */
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Ensure items are centered within the container */
-    
+    transition: left 0.3s ease;
+    user-select: none
 }
     
 
@@ -320,6 +324,7 @@ left: 4.2rem; /* Center the container horizontally */
 width: 40px; /* Logo size */
 cursor: pointer;
 margin-bottom: 0.3rem; /* Add spacing between the two logos */
+user-select: none
 }
 
 

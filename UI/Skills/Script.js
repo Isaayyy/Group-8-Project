@@ -81,3 +81,26 @@ window.addEventListener('resize', () => {
         }
     }
 });
+
+function updateNavbarVisibility() {
+    var navbar = document.getElementById("navbar");
+    var logoContainer = document.querySelector('.logo-container');
+    const mainContent = document.querySelector('.main-content');
+    
+    // Check if the window width is less than 768px
+    if (window.innerWidth < 1200 ) {
+        navbar.classList.remove("active"); // Remove active class to hide the navbar
+        logoContainer.classList.remove("active");
+        mainContent.classList.remove("active");
+    } else {
+         navbar.classList.add("active"); // Add active class to show the navbar
+        logoContainer.classList.add("active");
+        mainContent.classList.add("active");
+    }
+}
+
+// Event listener for window resize
+window.addEventListener('resize', updateNavbarVisibility);
+
+// Initial check on page load
+updateNavbarVisibility();
