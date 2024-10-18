@@ -4,63 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Skillsstyle.css">
-    <title>Document</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('../Navbar/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                });
+        });
+    </script>
 </head>
 <body>
-    <!-- Header -->
-    <div class="skills" style="z-index: 1000;" id="Skills">
-        <div class="skills-header">
-            <div class="skills-header-container">
-                <h1>Skills</h1>
-                <div class="insights">
-                    <p>Insights</p>
+    
+<div class="container">
+
+    <div id="navbar"></div>
+
+    <div class="main-content active">
+        <div class="skills" style="z-index: 1000;" id="Skills">
+            <div class="skills-header">
+                <div class="skills-header-container">
+                    <h1>Skills</h1>
+                    <div class="insights">
+                        <p>Insights</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="skills" style="top: 90px; z-index: 10; width: 50%;">
-        <div class="analyze-container">
-            <img src="Analyze.png" alt="analyze" style="height: 80px; margin-right: 10px;">
-            <h2>Gap Report</h2>
-        </div>
-    </div>
-
-    <!-- Description section -->
-    <div class="overview-container" id="Description">
-        <div class="description-container">
-            <h3>General Overview</h3>
-            <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-        </div>
-        <div class="description-container" >
-            <div class="insight-container">
-                <img src="Light On.png" style="height: 80px;">
-                <h2>Insights!</h2>
-            </div>
-            <div class="center-container">
-                <img src="pie.png" style="width: 100%; max-width: 500px;">
-            </div>
-            
-            <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-        </div>
-    </div>
-
-    
-    <!-- Triangle button -->
-    <div class="center-container">
-        <div class="triangle-button" href="#Skills"></div>
-    </div>
-
-    <!-- Skills section -->
-    <div class="skills-header-container" style="margin-top: 20px;" id="Skills">
         
-        <div class="skills-container" style="background-color: #B1418E; margin-left: 50px; height: 500px;">
-            <div class="skill-button" style="left: 30px;">Current Skills</div>  
+        <div class="overview-container" id="Description">
+            <div class="description-container">
+                <h3>General Overview</h3>
+                <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+            <div class="description-container" >
+                <div class="insight-container">
+                    <img src="Light On.png" style="height: 80px;">
+                    <h2>Insights!</h2>
+                </div>
+                <div class="center-container">
+                    <img src="pie.png" style="width: 100%; max-width: 500px;">
+                </div>
+                
+                <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
         </div>
-        <div class="skills-container" style="background-color: #E59458; margin-right: 50px; height: 500px;">
-            <div class="skill-button" style="right: 30px;">Required Skills</div>  
+
+        <div class="skills" style="top: 90px; z-index: 10; width: 50%;">
+            <div class="analyze-container">
+                <img src="Analyze.png" alt="analyze" style="height: 80px; margin-right: 10px;">
+                <h2>Gap Report</h2>
+            </div>
+        </div>
+        <div class="center-container">
+            <div class="triangle-button" href="#Skills"></div>
+        </div>
+
+        <div class="skills-header-container" style="margin-top: 20px;" id="Skills">
+            
+            <div class="skills-container" style="background-color: #B1418E; margin-left: 50px; height: 500px;">
+                <div class="skill-button" style="left: 30px;">Current Skills</div>  
+            </div>
+            <div class="skills-container" style="background-color: #E59458; margin-right: 50px; height: 500px;">
+                <div class="skill-button" style="right: 30px;">Required Skills</div>  
+            </div>
         </div>
     </div>
+</div>
 </body>
 </html>
