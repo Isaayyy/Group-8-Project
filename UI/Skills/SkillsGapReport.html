@@ -4,117 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Skillsstyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Document</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('../Navbar/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                });
+        });
+    </script>
 </head>
 <body>
     
 <div class="container">
-    <div class="logo-container active">
-        <img src="Centralized Network Pink.png" alt="Logo" class="logo" id="logo" onclick="toggleNavbar()"> <!-- Insert your logo here -->
-        <img src="FutureForge.png" alt="FutureForge Logo" class="logo-text">
-    </div>
 
-    <nav class="navbar active" id="navbar">
+    <div id="navbar"></div>
 
-        <!-- Decorative container with nav-items inside -->
-        <div class="decorative-container">
-            <div class="strap1">
-             <a href="#user" class="nav-item">
-              <i><img src="Male User.png" ></i>
-              </a>
-            </div>
-        
-        <div class="username">Luisa Mae Penaflor</div>
-   
-        <div class="strap2">
-          <a style="margin-top: 1.7rem;" href="#career" class="nav-item">
-            <p  class="iconZoom "><img src="Job Seeker.png"> Career  
-            <br><i style="margin: 0.2rem;" class="fa-solid fa-circle iconZoom"></i></p>
-          </a>
-
-          <a href="#career2" class="nav-item iconZoom2">
-            <i style="margin-top: 2.5rem;" class="fa-solid fa-circle"></i>
-          </a>
-      
-          <a href="#skills" class="nav-item ">
-            <p class="iconZoom"><img src="Exercise.png" > Skills
-            <br><i style="margin: 0.2rem;" class="fa-solid fa-circle iconZoom"></i></p>
-          </a>
-
-          <a href="#skills2" class="nav-item iconZoom2">
-            <i style="margin-top: 2.5rem;" class="fa-solid fa-circle"></i>
-          </a>
-
-          <a href="#skills3" class="nav-item iconZoom2">
-            <i class="fa-solid fa-circle"></i>
-          </a>
-          
-          <div class="logout-container">
-          <a href="#logout" class="nav-item iconZoom" style="margin: 1rem; white-space: nowrap;">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span>Log Out</span>
-          </a>
-
-          </div>
-        </div>
-    <div id="indicator"></div> 
-</nav>
-
-
-
-<div class="main-content active">
-    <div class="skills" style="z-index: 1000;" id="Skills">
-        <div class="skills-header">
-            <div class="skills-header-container">
-                <h1>Skills</h1>
-                <div class="insights">
-                    <p>Insights</p>
+    <div class="main-content active">
+        <div class="skills" style="z-index: 1000;" id="Skills">
+            <div class="skills-header">
+                <div class="skills-header-container">
+                    <h1>Skills</h1>
+                    <div class="insights">
+                        <p>Insights</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="overview-container" id="Description">
-        <div class="description-container">
-            <h3>General Overview</h3>
-            <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-        </div>
-        <div class="description-container" >
-            <div class="insight-container">
-                <img src="Light On.png" style="height: 80px;">
-                <h2>Insights!</h2>
-            </div>
-            <div class="center-container">
-                <img src="pie.png" style="width: 100%; max-width: 500px;">
-            </div>
-            
-            <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-        </div>
-    </div>
-
-    <div class="skills" style="top: 90px; z-index: 10; width: 50%;">
-        <div class="analyze-container">
-            <img src="Analyze.png" alt="analyze" style="height: 80px; margin-right: 10px;">
-            <h2>Gap Report</h2>
-        </div>
-    </div>
-    <div class="center-container">
-        <div class="triangle-button" href="#Skills"></div>
-    </div>
-
-    <div class="skills-header-container" style="margin-top: 20px;" id="Skills">
         
-        <div class="skills-container" style="background-color: #B1418E; margin-left: 50px; height: 500px;">
-            <div class="skill-button" style="left: 30px;">Current Skills</div>  
+        <div class="overview-container" id="Description">
+            <div class="description-container">
+                <h3>General Overview</h3>
+                <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+            <div class="description-container" >
+                <div class="insight-container">
+                    <img src="Light On.png" style="height: 80px;">
+                    <h2>Insights!</h2>
+                </div>
+                <div class="center-container">
+                    <img src="pie.png" style="width: 100%; max-width: 500px;">
+                </div>
+                
+                <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
         </div>
-        <div class="skills-container" style="background-color: #E59458; margin-right: 50px; height: 500px;">
-            <div class="skill-button" style="right: 30px;">Required Skills</div>  
+
+        <div class="skills" style="top: 90px; z-index: 10; width: 50%;">
+            <div class="analyze-container">
+                <img src="Analyze.png" alt="analyze" style="height: 80px; margin-right: 10px;">
+                <h2>Gap Report</h2>
+            </div>
+        </div>
+        <div class="center-container">
+            <div class="triangle-button" href="#Skills"></div>
+        </div>
+
+        <div class="skills-header-container" style="margin-top: 20px;" id="Skills">
+            
+            <div class="skills-container" style="background-color: #B1418E; margin-left: 50px; height: 500px;">
+                <div class="skill-button" style="left: 30px;">Current Skills</div>  
+            </div>
+            <div class="skills-container" style="background-color: #E59458; margin-right: 50px; height: 500px;">
+                <div class="skill-button" style="right: 30px;">Required Skills</div>  
+            </div>
         </div>
     </div>
 </div>
-</div>
-<script src="script.js"></script>
 </body>
 </html>
