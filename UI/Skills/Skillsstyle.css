@@ -10,6 +10,11 @@
     left: 0;
     width: 100%;
     background-color: white;
+    transition: transform 0.2s ease-in-out, margin-right 0.2s ease-in-out;
+    transform: translateX(10rem); /* Main content shifted */
+    margin-right: 10vw;
+    margin-left: 1vw;
+    flex-grow: 1;
 }
 
 .skills-header {
@@ -26,6 +31,10 @@
 .skills-header-container h1 {
     font-size: 80px;
     color: #DB1F90;
+}
+
+#skillcontainer {
+    display: none;
 }
 
 .insights {
@@ -46,6 +55,7 @@
     flex-grow: 1;
     padding: 10px;
     margin: 10px 30px;
+    height: 700px;
 }
 
 .analyze-container {
@@ -60,12 +70,11 @@
 }
 
 .insight-container {
-    top: 30px;
+    margin-top: 20px;
     align-items: center;
     position: absolute;
     display: inline-flex;
-    top: 110px; 
-    z-index: 11;
+    visibility: visible;
 }
 
 .insight-container h2 {
@@ -89,7 +98,7 @@
 
 .overview-container {
     display: flex;
-    margin-top: 210px;
+    margin-top: 250px;
     padding: 0 30px;
 }
 
@@ -108,7 +117,6 @@
 }
 
 .triangle-button {
-    
     width: 0;
     height: 0;
     border-left: 30px solid transparent;
@@ -137,4 +145,125 @@
     justify-content: center; /* Horizontally center */
     align-items: center;     /* Vertically center */
     margin: 30px 0;
+    bottom: 0;
+}
+
+  /* Main content styles */
+  .main-content {
+    flex-grow: 1; /* Allow the content area to take remaining space */
+    transition: transform 0.2s ease-in-out, margin-right 0.2s ease-in-out;
+    min-height: 100vh; /* Ensure it covers full height */
+    transform: translateX(2rem); /* Shift main content to the right */
+    margin: 0rem;
+  
+  }
+  
+  .main-content.active {
+      transition: transform 0.2s ease-in-out, margin-right 0.2s ease-in-out;
+      transform: translateX(10rem); /* Main content shifted */
+      margin-right: 10vw;
+      margin-left: 1vw;
+    }
+
+.manage-container {
+    margin: 30px;
+    background-color: #F29D38;
+    width: auto;
+    height: auto;
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.manage-skills-container {
+    position: relative;
+    flex-grow: 1;
+    padding: 10px;
+    margin: 30px;
+    min-height: 300px;
+    height: auto;
+}
+
+.button-container {
+    display: flex; /* Use flexbox to align the button */
+    justify-content: flex-end; /* Align the button to the right */
+    position: absolute;
+    right: 0; /* Adjust the button's horizontal position */
+    top: 20px;
+}
+
+.container {
+    width: 100%;
+    min-height: 100px;
+}
+
+.container h4 {
+    margin-top: 5px;
+    color: #D9D9D9;
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button-circle {
+    margin: 0 15px;
+    border-radius: 50%;
+    width: 40px; /* Define size for the circle */
+    height: 40px;
+    background-color: #D9D9D9; /* Background color for the button */
+    display: flex;
+    align-items: center; /* Center the content vertically */
+    justify-content: center; /* Center the content horizontally */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for the button */
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+}
+
+.button-circle img {
+    width: 20px; /* Adjust the icon size */
+    height: 20px;
+}
+
+.manage-button {
+    text-align: left;
+    padding: 10px 30px;
+    color: black;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    z-index: 15;
+    position: fixed;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-size: 30px;
+    font-weight: bolder;
+    width: 300px;
+    border: 1px solid #5946C9;
+    right: 150px;
+    top: 30px;
+    visibility: hidden;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    overflow: auto; /* Enable scrolling if needed */
+    transition: opacity 0.3s ease-in-out; /* Optional smooth transition */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    opacity: 0; /* Start transparent */
+    transform: translateY(-50px); /* Start with a slight upward offset */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth opening */
+    margin-top: 200px;
+}
+
+.modal-content.show {
+    opacity: 1;
+    transform: translateY(0); /* Bring content to normal position */
 }

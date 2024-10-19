@@ -6,13 +6,73 @@
     <link rel="stylesheet" href="Skillsstyle.css">
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('../Navbar/navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar').innerHTML = data;
-                });
-        });
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('../Navbar/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    });
+
+    window.addEventListener('scroll', function() {
+        const insightsContainer = document.querySelector('.insight-container');
+        const manageButton = document.querySelector('.manage-button');
+        const skillsSection = document.getElementById('skillcontainer');
+        const skillsSectionRect = skillsSection.getBoundingClientRect();
+
+        // Hide insights when in the skills section
+        if (skillsSectionRect.top < window.innerHeight && skillsSectionRect.bottom >= 0) {
+            insightsContainer.style.visibility = 'hidden'; // Hide insights
+            manageButton.style.visibility = 'visible'; // Show Manage Skills button
+        } else {
+            insightsContainer.style.visibility = 'visible'; // Show insights
+            manageButton.style.visibility = 'hidden'; // Hide Manage Skills button
+        }
+    });
+
+    
+
+    function showAndScrollToSkills() {
+        const skillsSection = document.getElementById('skillcontainer');
+        const manageButton = document.querySelector('.manage-button');
+
+        // Make the skills section visible
+        skillsSection.style.display = 'flex';
+
+        // Show the manage button
+        manageButton.style.visibility = 'visible';
+
+        // Scroll to the skills section smoothly
+        skillsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleModal() {
+        const modal = document.getElementById("skillsModal");
+        const modalContent = modal.querySelector(".modal-content");
+        const manageButton = document.getElementById("manageButton");
+        const mainContent = document.getElementById("mainContent");
+
+        const modalStyle = window.getComputedStyle(modal);
+        
+        if (modalStyle.display === "block") {
+            // Close the modal
+            modal.style.display = "none";
+            modalContent.classList.remove("show");
+            manageButton.textContent = "Manage Skills"; // Change button text to 'Manage Skills'
+            mainContent.style.display = "block"; // Show main content again
+                // Scroll to the #Description section smoothly
+            const descriptionSection = document.getElementById("skillcontainer");
+            descriptionSection.scrollIntoView({ behavior: 'auto' });
+        } else {
+            // Open the modal
+            modal.style.display = "block";
+            modalContent.classList.add("show");
+            manageButton.textContent = "x | Close Modal"; // Change button text to 'Close Modal'
+            mainContent.style.display = "none"; // Hide main content
+        }
+    }
+
+
     </script>
 </head>
 <body>
@@ -20,55 +80,88 @@
 <div class="container">
 
     <div id="navbar"></div>
-
+    
+    <div class="skills" style="z-index: 1000;">
+        <div class="skills-header">
+            <div class="skills-header-container">
+                <h1>Skills</h1>
+                <div class="insights">
+                    <p>Insights</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="skills" style="top: 90px; z-index: 10;">
+        <div class="analyze-container">
+            <img src="Images/Analyze.png" alt="analyze" style="height: 80px; margin-right: 10px;">
+            <h2>Gap Report</h2>
+        </div>
+        <div class="insight-container">
+            <img src="Images/Light On.png" style="height: 80px;">
+            <h2>Insights!</h2>
+        </div>
+        <button class="manage-button" onclick="toggleModal()" id="manageButton">Manage Skills</button>
+    </div>
+    
+        
+    <!-- Main Content Section -->
     <div class="main-content active">
-        <div class="skills" style="z-index: 1000;" id="Skills">
-            <div class="skills-header">
-                <div class="skills-header-container">
-                    <h1>Skills</h1>
-                    <div class="insights">
-                        <p>Insights</p>
+        <div class="container" id="mainContent">
+            <div class="overview-container" id="Description">
+                <div class="description-container">
+                    <h3>General Overview</h3>
+                    <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="description-container">
+                    <div class="center-container">
+                        <img src="Images/pie.png" style="width: 100%; max-width: 500px;">
+                    </div>
+                    <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        
+            <div class="center-container">
+                <div class="triangle-button" onclick="showAndScrollToSkills()"></div>
+            </div>
+
+            <!-- Skills Section (Initially Hidden) -->
+            <div class="skills-header-container" id="skillcontainer" style="margin-top: 200px;">
+                <div class="skills-container" style="background-color: #B1418E; margin-left: 50px;">
+                    <div class="skill-button" style="left: 30px;">Current Skills</div>  
+                </div>
+                <div class="skills-container" style="background-color: #E59458; margin-right: 50px;">
+                    <div class="skill-button" style="right: 30px;">Required Skills</div>  
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="skillsModal" class="modal">
+            <div class="modal-content">
+                <!-- Your manage-container content -->
+                <div class="manage-container">
+                    <div class="manage-skills-container">
+                        <div class="skill-button" style="left: -60px;">Current Skills</div>
+                        <div class="button-container">
+                            <div class="container">
+                                <div class="button-circle"><img src="Images/+.png"></div>
+                                <h4>Add</h4>
+                            </div>
+                            <div class="container">
+                                <div class="button-circle"><img src="Images/Edit.png"></div>
+                                <h4>Edit</h4>
+                            </div>
+                            <div class="container">
+                                <div class="button-circle"><img src="Images/Delete.png"></div>
+                                <h4>Delete</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="manage-skills-container">
+                        <div class="skill-button" style="left: -60px;">Required Skills</div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="overview-container" id="Description">
-            <div class="description-container">
-                <h3>General Overview</h3>
-                <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-            <div class="description-container" >
-                <div class="insight-container">
-                    <img src="Light On.png" style="height: 80px;">
-                    <h2>Insights!</h2>
-                </div>
-                <div class="center-container">
-                    <img src="pie.png" style="width: 100%; max-width: 500px;">
-                </div>
-                
-                <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-        </div>
-
-        <div class="skills" style="top: 90px; z-index: 10; width: 50%;">
-            <div class="analyze-container">
-                <img src="Analyze.png" alt="analyze" style="height: 80px; margin-right: 10px;">
-                <h2>Gap Report</h2>
-            </div>
-        </div>
-        <div class="center-container">
-            <div class="triangle-button" href="#Skills"></div>
-        </div>
-
-        <div class="skills-header-container" style="margin-top: 20px;" id="Skills">
-            
-            <div class="skills-container" style="background-color: #B1418E; margin-left: 50px; height: 500px;">
-                <div class="skill-button" style="left: 30px;">Current Skills</div>  
-            </div>
-            <div class="skills-container" style="background-color: #E59458; margin-right: 50px; height: 500px;">
-                <div class="skill-button" style="right: 30px;">Required Skills</div>  
             </div>
         </div>
     </div>
