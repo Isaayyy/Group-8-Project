@@ -1,3 +1,5 @@
+/* Skills Gap Report CSS and some */
+
 * { 
     margin:0;
     padding:0; 
@@ -58,29 +60,50 @@
     height: 700px;
 }
 
-.analyze-container {
-    margin: 20px 40px;
-    display: inline-flex;
-    align-items: center;
+.another-container {
+    position: fixed;
+    top: 90px; /* Changed from 0 to 90 to match your style */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    transition: transform 0.2s ease-in-out, margin-right 0.2s ease-in-out;
+    transform: translateX(10rem); /* Main content shifted */
+    margin-right: 10vw;
+    margin-left: 20px;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    padding: 20px; /* Add padding to the container */
+    top: 90px; 
+    z-index: 10;
 }
 
-.analyze-container h2 {
-    font-size: 30px;
-    font-weight: bolder;
-}
-
+.analyze-container,
 .insight-container {
-    margin-top: 20px;
+    display: flex;
     align-items: center;
-    position: absolute;
-    display: inline-flex;
-    visibility: visible;
+    flex: 1; /* Allow containers to grow equally */
+    margin: 0 10px; /* Margin for spacing between containers */
 }
 
+.analyze-container h2,
 .insight-container h2 {
     font-size: 30px;
     font-weight: bolder;
+}
+
+.analyze-container h2 {
+    color: #3E3E3E;
+}
+
+.insight-container h2 {
     color: #F29D38;
+}
+
+/* Ensure the images are the same size */
+.analyze-container img,
+.insight-container img {
+    height: 80px; /* Consistent image height */
+    margin-right: 10px; /* Space between image and text */
 }
 
 .skill-button {
@@ -266,4 +289,97 @@
 .modal-content.show {
     opacity: 1;
     transform: translateY(0); /* Bring content to normal position */
+}
+
+/* Skills Learning Path CSS */
+.diamond {
+    position: relative;
+    width: 100px; /* Initial Width of the diamond */
+    height: 100px; /* Initial Height of the diamond */
+    border-radius: 30%; /* Adjust for rounded corners */
+    display: flex; /* Center the text */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    transform: rotate(45deg); /* Rotate the diamond shape */
+    transition: width 0.3s, height 0.3s, background-color 0.3s; /* Smooth transitions */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.diamond-text {
+    position: absolute; /* Position text on top of the diamond */
+    color: white; /* Text color */
+    font-weight: bold; /* Bold text */
+    font-size: 40px; /* Initial text size */
+    transform: rotate(-45deg); /* Rotate text back to upright */
+    transition: font-size 0.3s; /* Smooth transition for text size */
+}
+
+.diamond-container {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 0;
+    border-radius: 0 0 25px 25px;
+}
+
+.diamond-bottom-line {
+    display: inline-block; /* Ensure the border only applies to the line */
+    width: 80px; /* Adjust the width of the bottom line */
+    padding-bottom: 25px;
+    margin: 0 auto; /* Center the line horizontally */
+}
+
+.learning-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for the diamonds */
+    gap: 20px;
+    width: auto;
+    margin: 250px 30px 0 50px;
+    flex-grow: 1;
+    border: 1px solid;
+}
+
+.outside-diamond-container:nth-child(1) {
+    grid-column: 1 / 2; /* First column */
+    grid-row: 1 / 2; /* First row */
+}
+
+.outside-diamond-container:nth-child(2) {
+    grid-column: 1 / 2; /* First column */
+    grid-row: 2 / 3; /* Second row */
+}
+
+.outside-diamond-container:nth-child(3) {
+    grid-column: 2 / 3; /* Second column */
+    grid-row: 1 / 2; /* First row */
+}
+
+.outside-diamond-container:nth-child(4) {
+    grid-column: 2 / 3; /* Second column */
+    grid-row: 2 / 3; /* Second row */
+}
+
+.outside-diamond-container {
+    display: flex;
+    flex-direction: column; /* Stack the diamond and text vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100%; /* Make the container take the full height (or adjust as needed) */
+    text-align: center; /* Center the h3 text */
+}
+
+.outside-diamond-container h3 {
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.content-container {
+    display: none; /* Initially hidden */
+    width: 300px;
+    height: 80%;
+    margin-left: 20px;
+    padding: 20px;
+    color: white;
+    position: relative;
 }

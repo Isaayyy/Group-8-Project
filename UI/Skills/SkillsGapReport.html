@@ -4,76 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Skillsstyle.css">
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('../Navbar/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar').innerHTML = data;
-            });
-    });
-
-    window.addEventListener('scroll', function() {
-        const insightsContainer = document.querySelector('.insight-container');
-        const manageButton = document.querySelector('.manage-button');
-        const skillsSection = document.getElementById('skillcontainer');
-        const skillsSectionRect = skillsSection.getBoundingClientRect();
-
-        // Hide insights when in the skills section
-        if (skillsSectionRect.top < window.innerHeight && skillsSectionRect.bottom >= 0) {
-            insightsContainer.style.visibility = 'hidden'; // Hide insights
-            manageButton.style.visibility = 'visible'; // Show Manage Skills button
-        } else {
-            insightsContainer.style.visibility = 'visible'; // Show insights
-            manageButton.style.visibility = 'hidden'; // Hide Manage Skills button
-        }
-    });
-
-    
-
-    function showAndScrollToSkills() {
-        const skillsSection = document.getElementById('skillcontainer');
-        const manageButton = document.querySelector('.manage-button');
-
-        // Make the skills section visible
-        skillsSection.style.display = 'flex';
-
-        // Show the manage button
-        manageButton.style.visibility = 'visible';
-
-        // Scroll to the skills section smoothly
-        skillsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function toggleModal() {
-        const modal = document.getElementById("skillsModal");
-        const modalContent = modal.querySelector(".modal-content");
-        const manageButton = document.getElementById("manageButton");
-        const mainContent = document.getElementById("mainContent");
-
-        const modalStyle = window.getComputedStyle(modal);
-        
-        if (modalStyle.display === "block") {
-            // Close the modal
-            modal.style.display = "none";
-            modalContent.classList.remove("show");
-            manageButton.textContent = "Manage Skills"; // Change button text to 'Manage Skills'
-            mainContent.style.display = "block"; // Show main content again
-                // Scroll to the #Description section smoothly
-            const descriptionSection = document.getElementById("skillcontainer");
-            descriptionSection.scrollIntoView({ behavior: 'auto' });
-        } else {
-            // Open the modal
-            modal.style.display = "block";
-            modalContent.classList.add("show");
-            manageButton.textContent = "x | Close Modal"; // Change button text to 'Close Modal'
-            mainContent.style.display = "none"; // Hide main content
-        }
-    }
-
-
-    </script>
+    <script src="SkillsGapReport.js"></script>
 </head>
 <body>
     
@@ -91,13 +22,13 @@
             </div>
         </div>
     </div>
-    <div class="skills" style="top: 90px; z-index: 10;">
+    <div class="another-container">
         <div class="analyze-container">
-            <img src="Images/Analyze.png" alt="analyze" style="height: 80px; margin-right: 10px;">
+            <img src="Images/Analyze.png" alt="analyze">
             <h2>Gap Report</h2>
         </div>
         <div class="insight-container">
-            <img src="Images/Light On.png" style="height: 80px;">
+            <img src="Images/Light On.png">
             <h2>Insights!</h2>
         </div>
         <button class="manage-button" onclick="toggleModal()" id="manageButton">Manage Skills</button>
