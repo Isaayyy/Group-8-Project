@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/Skillsstyle.css">
+</head>
+<script src="/static/SkillsGapReport.js"></script>
+<body>
+    
+<div class="container">
+
+    <div id="navbar"></div>
+    
+    <div class="skills" style="z-index: 1000;">
+        <div class="skills-header">
+            <div class="skills-header-container">
+                <h1>Skills</h1>
+                <div class="insights">
+                    <p>Insights</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="another-container">
+        <div class="analyze-container">
+            <img src="/static/Images/Analyze.png" alt="analyze">
+            <h2>Gap Report</h2>
+        </div>
+        <div class="insight-container">
+            <img src="/static/Images/Light On.png">
+            <h2>Insights!</h2>
+        </div>
+        <button class="manage-button" onclick="toggleModal()" id="manageButton">Manage Skills</button>
+    </div>
+    
+        
+    <!-- Main Content Section -->
+    <div class="main-content active">
+        <div class="container" id="mainContent">
+            <div class="overview-container" id="Description">
+                <div class="description-container">
+                    <h3>General Overview</h3>
+                    <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="description-container">
+                    <div class="center-container">
+                        <img src="/static/Images/pie.png" style="width: 100%; max-width: 500px;">
+                    </div>
+                    <p>Lorem ipsum aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        
+            <div class="center-container">
+                <div class="triangle-button" onclick="showAndScrollToSkills()"></div>
+            </div>
+
+            <!-- Skills Section (Initially Hidden) -->
+            <div class="skills-header-container" id="skillcontainer" style="margin-top: 200px;">
+                <div class="skills-container" style="background-color: #B1418E; margin-left: 50px;">
+                    <div class="skill-button" style="left: 30px;">Current Skills</div>  
+                </div>
+                <div class="skills-container" style="background-color: #E59458; margin-right: 50px;">
+                    <div class="skill-button" style="right: 30px;">Required Skills</div>  
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="skillsModal" class="modal">
+            <div class="modal-content">
+                <!-- Your manage-container content -->
+                <div class="manage-container">
+                    <div class="manage-skills-container">
+                        <div class="skill-button" style="left: -60px;">Current Skills</div>
+                        <div class="button-container">
+                            <div class="container">
+                                <div class="button-circle"><img src="/static/Images/+.png"></div>
+                                <h4>Add</h4>
+                            </div>
+                            <div class="container">
+                                <div class="button-circle"><img src="/static/Images/Edit.png"></div>
+                                <h4>Edit</h4>
+                            </div>
+                            <div class="container">
+                                <div class="button-circle"><img src="/static/Images/Delete.png"></div>
+                                <h4>Delete</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="manage-skills-container">
+                        <div class="skill-button" style="left: -60px;">Required Skills</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
