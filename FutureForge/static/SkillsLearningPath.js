@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('/templates/navbar.html')
+    fetch('/navbar')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
