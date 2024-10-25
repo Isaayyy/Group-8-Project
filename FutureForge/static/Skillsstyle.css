@@ -123,8 +123,6 @@
     display: flex;
     margin-top: 250px;
     padding: 0 30px;
-    min-height: 550px;
-    border: 1px solid;
 }
 
 .description-container {

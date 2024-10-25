@@ -1,15 +1,24 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail, Message
+import random 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dasikretki'
 
-# Correct MySQL URI format
+# MySQL database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Luisamaesy_1229@localhost/futureforge'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# Initialize the SQLAlchemy object
 db = SQLAlchemy(app)
+
+# Flask-Mail configuration for Gmail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465  # Or 587 if using TLS
+app.config['MAIL_USERNAME'] = 'futureforge1024@gmail.com'
+app.config['MAIL_PASSWORD'] = 'FForge@1024'
+app.config['MAIL_USE_TLS'] = False 
+app.config['MAIL_USE_SSL'] = True 
+mail = Mail(app)
 
 # User Model
 class User(db.Model):
@@ -62,6 +71,72 @@ def signup():
         flash(f'Error creating account: {str(e)}', 'error')
 
     return redirect(url_for('login_signup_page'))
+
+
+# Forgot Password Route
+@app.route('/send-verification-email', methods=['POST'])
+def send_verification_email():
+    email = request.form['email']
+    
+    # Generate a random 6-digit verification number
+    confirmation_number = ''.join([str(random.randint(0, 9)) for _ in range(6)])
+
+    # Store the confirmation number in the session
+    session['confirmation_number'] = confirmation_number  # Store for later comparison
+    
+    # Prepare the email message
+    msg = Message(
+        'Password Reset Request',
+        sender='futureforge1024@gmail.com',
+        recipients=[email]
+    )
+    
+    # Create the email body
+    msg.body = f'Your verification number is: {confirmation_number}\n\nUse this number to reset your password.'
+    
+    try:
+        # Send the email
+        mail.send(msg)
+        flash('A verification number has been sent to your email.', 'success')
+    except Exception as e:
+        flash(f'Error sending email: {str(e)}', 'error')
+
+    return redirect(url_for('login_signup_page'))
+
+@app.route('/enter-number', methods=['POST'])
+def enter_number():
+    entered_number = request.form['confirmation_number']
+    
+    # Retrieve the confirmation number from the session
+    confirmation_number = session.get('confirmation_number')  # Get confirmation number from session
+
+    if entered_number == confirmation_number:  # Compare with the session value
+        return redirect(url_for('enter_new_pass'))  # Proceed to enter new password
+    else:
+        flash('Incorrect number. Please try again.', 'error')
+        return redirect(url_for('login_signup_page'))  # Redirect to the login page
+
+# Change Password Route
+@app.route('/change-password', methods=['POST'])
+def change_password():
+    new_pass = request.form['newPass']
+    confirm_pass = request.form['confirmPass']
+
+    if new_pass == confirm_pass:
+        # Retrieve the user from the session
+        user = User.query.get(session['user_id'])
+
+        if user:  # Ensure user exists
+            user.password = new_pass  # Store the plain password directly
+            db.session.commit()
+            flash('Password updated successfully', 'success')
+            return redirect(url_for('skills_gap_report'))
+        else:
+            flash('User not found. Please log in again.', 'error')
+            return redirect(url_for('login_signup_page'))  # Redirect to login page if user is not found
+    else:
+        flash('Passwords do not match', 'error')
+        return redirect(url_for('enter_new_pass'))
 
 
 # Routes to render

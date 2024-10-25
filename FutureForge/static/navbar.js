@@ -2,7 +2,7 @@
 function toggleNavbar() {
     var navbar = document.getElementById("navbar");
     var logoContainer = document.querySelector('.logo-container');
-    const mainContent = document.querySelector('.main-content');
+    const mainContent = document.querySelector('.main-container');
 
     // Toggle the 'active' class for the navbar and main content
     navbar.classList.toggle("active");
@@ -85,7 +85,7 @@ window.addEventListener('resize', () => {
 function updateNavbarVisibility() {
     var navbar = document.getElementById("navbar");
     var logoContainer = document.querySelector('.logo-container');
-    const mainContent = document.querySelector('.main-content');
+    const mainContent = document.querySelector('.main-container');
     
     // Check if the window width is less than 768px
     if (window.innerWidth < 1200 ) {
