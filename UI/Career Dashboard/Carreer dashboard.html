@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh; /* Full height of the viewport */
+            background-color: #f0f0f0;
+        }
+        .content {
+            width: 100%; /* Adjusted to occupy full width */
+            background-color: white;
+            padding: 30px;
+            overflow: auto; /* Enable scrolling if content exceeds view */
+        }
+        .content .header {
+            display: flex;
+            align-items: center;
+        }
+        .content .header h1 {
+            font-size: 2rem;
+            color: #db1f90;
+            margin: 0; /* Remove default margin for the h1 */
+            margin-right: 10px; /* Space between the title and insights */
+        }
+        .content .header p {
+            background-color: #36ad5e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 25px; /* Adjust this value to lower the "Insights" text */
+        }
+        .career-info {
+            display: flex;
+            margin-top: 30px;
+            flex-wrap: wrap; /* Allow elements to wrap if necessary */
+        }
+        .career-path {
+            flex: 1;
+            background: linear-gradient(to bottom, #503ec6, #ffffff);
+            padding: 20px;
+            position: relative;
+        }
+        .career-path h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .job-recommendation {
+            flex: 1;
+            border-radius: 15px;
+            text-align: center;
+            position: relative; /* Position relative to allow positioning of the hr */
+        }
+        .job-recommendation .top-line {
+            width: 100%; /* Full width */
+            height: 5px; /* Thickness of the line */
+            background-color: purple; /* Color of the line */
+            border-radius: 2px; /* Optional: Rounded corners */
+            margin-bottom: 20px; /* Space between the line and content below */
+        }
+        .job-recommendation img {
+            width: 100%;
+            border-radius: 15px;
+        }
+        .view-more-btn {
+            position: absolute; /* Absolute positioning relative to the container */
+            right: 20px; /* Position it 20px from the right edge */
+            bottom: 20px; /* Position it 20px from the bottom edge */
+            background-color: #cccccc;      
+            color: black;                   
+            padding: 10px 20px;             
+            border-radius: 15px;            
+            text-decoration: none;          
+            font-size: 1rem;                
+            text-align: center;             
+            cursor: pointer;                
+            transition: background-color 0.3s; 
+        }
+        .view-more-btn:hover {
+            background-color: #b3b3b3;      
+        }
+        .hidden-content {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            text-align: left; /* Align text to the left */
+        }
+        .full-width-content {
+            margin-top: 30px; /* Space above the full-width content */
+            padding: 20px;
+            background: linear-gradient(to bottom, #503ec6, #ffffff);
+        }
+        .current-job-info {
+            display: flex;
+            background-color: #F29D38;; /* Mustard-like orange */
+            padding: 20px;
+        }
+        .job-details {
+            flex: 1; /* Take up half of the container */
+            padding-right: 20px; /* Space between job details and achievements */
+        }
+        .achievements {
+            flex: 1; /* Take up half of the container */
+        }
+        .achievements div {
+            width: 30%;
+            height: 100px;
+            background-color: lightgray; /* Placeholder color */
+            border-radius: 10px;
+            margin: 5px; /* Space between placeholders */
+        }
+        .potential-career-path {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white; /* Background color */
+            border-radius: 15px;
+        }
+        .timeline {
+            position: relative;
+            margin: 20px 0;
+            margin-left: 50px;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        .circle {
+            width: 40px; /* Circle size */
+            height: 40px; /* Circle size */
+            background-color: #3B59FB; /* Circle color */
+            border-radius: 50%; /* Makes it a circle */
+            margin-right: 20px; /* Space between circle and triangle */
+        }
+        .trianglePCP {
+            width: 0; /* No width */
+            height: 0; /* No height */
+            border-left: 15px solid #aab7fd; /* Right-pointing triangle color */
+            border-top: 15px solid transparent; /* Triangle top */
+            border-bottom: 15px solid transparent; /* Triangle bottom */
+            margin-right: 15px; /* Space between triangle and content */
+        }
+        .career-path-content {
+            background-color: white; /* Content background color */
+            padding: 10px 20px; /* Content padding */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            width: 80%; /* Content width */
+            box-shadow: 10px 10px 10px #e6d9ff; /* Horizontal offset, Vertical offset, Blur radius, Color */
+        }
+        .career-path-content p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: black;
+        }
+        /* New CSS for the added content */
+        .career-path-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .job-recommendation-title, .skills-certification {
+            flex: 1; /* Ensure both take equal space */
+            background-color: white;
+            padding: 20px;
+            margin: 0 10px;
+            border-radius: 15px;
+        }
+        .skills-certification img, .job-recommendation-title img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .steps-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 75px;
+            margin-left: 100px;
+        }
+        .steps-circle {
+            width: 20px;
+            height: 20px;
+            background-color: #f29d39;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .steps-triangle {
+            width: 0; /* No width */
+            height: 0; /* No height */
+            border-left: 10px solid #ffd3a0; /* Right-pointing triangle color */
+            border-top: 10px solid transparent; /* Triangle top */
+            border-bottom: 10px solid transparent; /* Triangle bottom */
+            margin-right: 10px; /* Space between triangle and content */
+        }
+        .steps-path-content {
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(233, 197, 120, 0.895); /* Optional: Adds a slight shadow for depth */
+            width: 80%;
+        }
+        .steps-path-content p {
+            margin: 0;
+            font-size: 1rem;
+            color: black;
+            text-align: center;
+        }
+        .circle-container1 {
+            display: flex;              /* Enable flexbox for the container */
+            align-items: center;        /* Center items vertically */
+            margin-left: 250px;         /* Add some margin to the left of the container */
+        }
+        .circle1, .circle2 {
+            width: 40px;               /* Circle width */
+            height: 40px;              /* Circle height */
+            background-color: #3b59fb;    /* Circle background color */
+            border-radius: 50%;        /* Make it a circle */
+            display: flex;             /* Enable flexbox for the circles */
+            justify-content: center;    /* Center horizontally */
+            align-items: center;       /* Center vertically */
+            color: white;              /* Text color */
+            font-size: 16px;           /* Text size */
+            margin-right: 600px;        /* Space between circles */
+        }
+        .circle2{
+            margin-right: 0px;           /* No margin after the last circle */
+        }
+        .circle-container2 {
+            display: flex;              /* Enable flexbox for the container */
+            align-items: center;        /* Center items vertically */
+            margin-left: 50px;         /* Add some margin to the left of the container */
+        }
+        .circle3, .circle4 {
+            width: 40px;               /* Circle width */
+            height: 40px;              /* Circle height */
+            background-color: #3b59fb;    /* Circle background color */
+            border-radius: 50%;        /* Make it a circle */
+            display: flex;             /* Enable flexbox for the circles */
+            justify-content: center;    /* Center horizontally */
+            align-items: center;       /* Center vertically */
+            color: white;              /* Text color */
+            font-size: 16px;           /* Text size */
+            margin-right: 550px;        /* Space between circles */
+        }
+        .circle4{
+            margin-right: 0;           /* No margin after the last circle */
+        }
+        .circle5{
+            width: 40px;               /* Circle width */
+            height: 40px;              /* Circle height */
+            background-color: #3B59FB;    /* Circle background color */
+            border-radius: 50%;        /* Make it a circle */
+            display: flex;             /* Enable flexbox for the circles */
+            justify-content: center;    /* Center horizontally */
+            align-items: center;       /* Center vertically */
+            color: white;              /* Text color */
+            font-size: 16px;           /* Text size */
+            margin-left: 300px;        /* Space between circles */
+        }
+        .circle-container3 {
+            display: flex;              /* Enable flexbox for the container */
+            align-items: center;        /* Center items vertically */
+            margin-left: 50px;         /* Add some margin to the left of the container */
+        }
+        .circle6, .circle7 {
+            width: 40px;               /* Circle width */
+            height: 40px;              /* Circle height */
+            background-color: #aab7fd;    /* Circle background color */
+            border-radius: 50%;        /* Make it a circle */
+            display: flex;             /* Enable flexbox for the circles */
+            justify-content: center;    /* Center horizontally */
+            align-items: center;       /* Center vertically */
+            color: white;              /* Text color */
+            font-size: 16px;           /* Text size */
+            margin-right: 550px;        /* Space between circles */
+        }
+        .circle7{
+            margin-right: 0;           /* No margin after the last circle */
+        }
+        .triangle-container1{
+            display: flex;              /* Enable flexbox for the container */
+            align-items: center;        /* Center items vertically */
+            margin-left: 195px;         /* Add some margin to the left of the container */
+        }
+        .triangle-button1, .triangle-button2{
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 40px solid #8b9dfd; /* Green triangle color */
+            cursor: pointer;
+            margin-left: 50px;
+            margin-right: 542px;
+        }
+        .triangle-button2{
+            margin-right: 0px;           /* No margin after the last circle */
+        }
+        .triangle-container2 {
+            display: flex;              /* Enable flexbox for the container */
+            align-items: center;        /* Center items vertically */
+            margin-left: 0px;         /* Add some margin to the left of the container */
+        }
+        .triangle-button3, .triangle-button4{
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 40px solid #8B9DFD; /* Green triangle color */
+            cursor: pointer;
+            margin-left: 50px;
+            margin-right: 490px;
+        }
+        .triangle-button4{
+            margin-right: 0;           /* No margin after the last circle */
+        }
+        .triangle-button5{
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 40px solid #8b9dfd; /* Green triangle color */
+            cursor: pointer;
+            margin-left: 295px;
+            margin-right: 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div class="header">
+            <h1 style="font-size: 4rem;">Career</h1>
+            <p>Insights</p>
+        </div>
+
+        <div class="career-info">
+            <div class="career-path">
+                <br>
+                <h2 style="color: white; font-size: 2rem;">Current Career Path</h2>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div>
+                    <div class="circle5"></div>
+                    <br>
+                    <div class="triangle-button5"></div> 
+                    <br>
+                </div>
+                <hr style="border: none; height: 5px; background-color: #8b9dfd; width: 100%;">
+                <div class="triangle-container2">
+                    <div class="triangle-button3"></div> 
+                    <div class="triangle-button4"></div> 
+                </div>
+                <br>
+                <div class="circle-container3">
+                    <div class="circle6"></div>
+                    <div class="circle7"></div>
+                </div>                
+            </div>
+
+            <div class="job-recommendation">
+                <div class="top-line"></div> <!-- Added horizontal line -->
+                <h2 style="text-align: center; color: purple;  margin: 0; border: 2px solid purple; padding: 5px;  border-radius: 15px; display: inline-block;">Job Recommendation</h2>
+                <img src="job.jpg" alt="Job Recommendation" style="width: 75%; height: 50%; border-radius: 15px; margin: 20px 0;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel ligula non felis vestibulum commodo.</p>
+                <a href="#" class="view-more-btn" onclick="toggleContent()">View More</a> <!-- Move button here -->
+            </div>
+        </div>
+
+        <br>
+
+        <!-- Full Width Content -->
+        <div class="full-width-content" id="fullWidthContent" style="display: none;">
+            <br>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <h2 style="color: white;">Current Career Path</h2>
+                <p style="color: white; font-size: 50px;"><b>2024</b></p>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div>
+                <div style="border-left: 5px solid white; height: 100px; margin-left: 150px; margin-top: 0px">
+                    <div class="circle-container1">
+                        <div class="circle1">15</div>
+                        <div class="circle2">10</div>
+                    </div>
+                    <br>
+                    <div class="triangle-container1">
+                        <div class="triangle-button1"></div> 
+                        <div class="triangle-button2"></div> 
+                    </div>
+                    <div style="border-left: 5px solid white; height: 100px; margin-left: 650px; margin-top: -100px;"></div>
+                </div>
+            </div>
+                <hr style="border: none; height: 5px; background-color: #8b9dfd; width: 100%;">
+                <br>
+                <div class="triangle-container2">
+                    <div class="triangle-button3"></div> 
+                    <div class="triangle-button4"></div> 
+                </div>
+                <br>
+                <div class="circle-container2">
+                    <div class="circle3">29</div>
+                    <div class="circle4">7</div>
+                </div>
+
+        </div>
+
+        <!-- Current Job Info -->
+        <div class="current-job-info" id="currentJobInfo" style="display: none;">
+            <div class="job-details">
+                <h2 style="color: purple; text-align: center; font-size: 2rem;">Current Job Title</h2>
+                <br>
+                <img src="job.jpg" alt="Job Title" style="width: 350px; height: 250px; border-radius: 10px; border: white solid; margin: 20px 0; margin-left: 208px;">
+                <p style="width: 380px; margin: 10px 0; margin-left: 208px; color: white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel ligula non felis vestibulum commodo.</p>
+                <br>
+                <p style="margin: 10px 0; margin-left: 208px; color: white;">Average Salary: 10-30k/month</p>
+                <br>
+                <h2 style="color: purple; text-align: center; font-size: 2rem;">Job Contract</h2>
+                <br>
+                <br>
+                <div style="width: 350px; height: 250px; border-radius: 10px; border: white solid; margin: 20px 0; margin-left: 208px;"></div>
+            </div>
+            <div class="achievements">
+                <h2 style="color: purple; text-align:center; font-size: 2rem">Achievements</h2>
+
+                <br>
+                    <div style="width: 275px; height: 250px; background-color: lightgray; margin-left: 248px;"></div>
+                    <br>
+                    <div style="width: 275px; height: 250px; background-color: lightgray; margin-left: 248px;"></div>
+                    <br>
+                    <div style="width: 275px; height: 250px; background-color: lightgray; margin-left: 248px;"></div>
+            </div>
+            
+        </div>
+
+        <!-- Potential Career Path Section -->
+        <div class="potential-career-path">
+            <h2 style="color: purple; text-align: center;">Potential Career Path</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="circle"></div>
+                    <div class="trianglePCP"></div>
+                    <div class="career-path-content">
+                        <p>Potential Career Path 01</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="circle"></div>
+                    <div class="trianglePCP"></div>
+                    <div class="career-path-content">
+                        <p>Potential Career Path 02</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="circle"></div>
+                    <div class="trianglePCP"></div>
+                    <div class="career-path-content">
+                        <p>Potential Career Path 03</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="circle"></div>
+                    <div class="trianglePCP"></div>
+                    <div class="career-path-content">
+                        <p>Potential Career Path 04</p>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <!-- Added new content for Job Recommend Title and Skills Certification -->
+            <div class="career-path-container">
+                <!-- Left side for Job Recommend Title -->
+                <div class="job-recommendation-title">
+                    <h2 style="text-align: center; width: max-content; margin: 0 auto; border: 2px solid black; border-radius: 0; padding: 5px;">Job Recommend Title</h2>
+                    <br>
+                    <img src="job.jpg" alt="Job Title" style="width: 500px; height: 250px; border-radius: 10px; border: white solid; margin: 20px 0; margin-left: 100px;">
+                    <p style="width: 500px; margin: 10px 0; margin-left: 100px; color: black;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel ligula non felis vestibulum commodo.</p>
+                    <br>
+                    <p style="margin: 10px 0; margin-left: 100px; color: black;">Average Salary: 30-50k/month</p>
+                    <br>
+                    <div style="display: flex; align-items: center; margin-left: 73px;">
+                        <img src="Light On.png" alt="Steps" style="width: 40px; height: 40px; margin-left: 20px;">
+                        <h3 style="color: #f29d39;">Steps to Take?</h3>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="steps-item">
+                        <div class="steps-circle"></div>
+                        <div class="steps-triangle"></div>
+                        <div class="steps-path-content">
+                            <p>Find A Resource</p>
+                        </div>
+                    </div>
+                    <div class="steps-item">
+                        <div class="steps-circle"></div>
+                        <div class="steps-triangle"></div>
+                        <div class="steps-path-content">
+                            <p>Enroll in a Course</p>
+                        </div>
+                    </div>
+                    <div class="steps-item">
+                        <div class="steps-circle"></div>
+                        <div class="steps-triangle"></div>
+                        <div class="steps-path-content">
+                            <p>Apply & Send</p>
+                        </div>
+                    </div>
+                    <div class="steps-item">
+                        <div class="steps-circle"></div>
+                        <div class="steps-triangle"></div>
+                        <div class="steps-path-content">
+                            <p>Consult Workers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side for Skills/Certification Requirements -->
+                <div class="skills-certification">
+    <h2 style="text-align: center; width: max-content; margin: 0 auto; border-radius: 0; padding: 5px; background-color: #F29D38;">Skills | Certification Requirements</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 150px); grid-gap: 20px; justify-content: center; margin: 20px 0;">
+        <div style="width: 150px; height: 150px; background-color: lightgray;"></div>
+        <div style="width: 150px; height: 150px; background-color: lightgray;"></div>
+        <div style="width: 150px; height: 150px; background-color: lightgray;"></div>
+        <div style="width: 150px; height: 150px; background-color: lightgray;"></div>
+        <div style="width: 150px; height: 150px; background-color: lightgray;"></div>
+        <div style="width: 150px; height: 150px; background-color: lightgray;"></div>
+    </div>
+</div>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent() {
+            var fullWidthContent = document.getElementById("fullWidthContent");
+            var currentJobInfo = document.getElementById("currentJobInfo");
+
+            if (fullWidthContent.style.display === "none") {
+                fullWidthContent.style.display = "block";
+                currentJobInfo.style.display = "flex"; // Display as flex
+            } else {
+                fullWidthContent.style.display = "none";
+                currentJobInfo.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
