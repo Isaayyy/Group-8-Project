@@ -345,7 +345,7 @@
     align-items: center;
     gap: 20px;
     width: auto;
-    margin: 250px 30px 0 50px;
+    margin: 20px 30px 0 50px;
     border: 1px solid;
 }
 
@@ -391,7 +391,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid white;
     padding: 20px; /* Added padding for inner space */
     min-width: 350px;
     max-width: 100%; /* Allow it to adapt to available space */
@@ -421,6 +420,7 @@
     flex-direction: column;
     align-items: center;
     gap: 10px; /* Spacing between items */
+    margin-left: 30px;
 }
 
 
@@ -470,3 +470,41 @@
         width: 100%; /* Full width on smaller screens */
     }
 }
+
+
+/* Style the tab container */
+.tab {
+    margin-top: 230px;
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center-align the tabs */
+    align-items: center; /* Vertically align items */
+    gap: 40px; /* Space between each tab */
+    width: auto;
+}
+  
+/* Style the buttons inside the tab */
+.tab button {
+    width: 200px;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: #556080; /* Optional: Default color */
+}
+  
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+  
+/* Create an active/current tablink class */
+.tab button.active {
+    color: #F0785A;
+    border-bottom: 7px solid #F0785A;
+}
+
+  
+  

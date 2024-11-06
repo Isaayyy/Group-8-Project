@@ -34,7 +34,13 @@
 
         <!-- Main Content Section -->
         <div class="main-content active">
-            <div class="learning-container">
+            <div class="tab">
+                <button class="tablinks" data-category="Recommended" onclick="loadCourses(this)">Recommended</button>
+                <button class="tablinks" data-category="Required" onclick="loadCourses(this)">Required</button>
+                <button class="tablinks" data-category="Optional" onclick="loadCourses(this)">Optional</button>
+            </div>
+              
+            <div class="learning-container" id="courses-content">
                 <div class="column-container">
                     <div class="outside-diamond-container">
                         <div class="diamond-container">
@@ -68,11 +74,27 @@
                                 <img src="Images/image 8.png">
                             </div>
                             <div class="content-column-container">
-                                <h1>Course Title</h1>
-                                <h3>Enter State name</h3>
-                                <p> Descriptions</p>
+                                <h1>Introduction to JavaScript</h1>
+                                <h3>Beginner</h3>
+                                <p> Learn the basics of JavaScript, from variables to loops, with hands-on examples.</p>
                             </div>
                         </div>
+
+                        <div class="content-inside-container">
+                            <div class="content-column-container">
+                                <div class="title-container">
+                                    <img src="Images/titledesign.png">
+                                    <h2>COURSERA</h2>
+                                </div>
+                                <img src="Images/image 8.png">
+                            </div>
+                            <div class="content-column-container">
+                                <h1>Python for Data Science</h1>
+                                <h3>Intermediate</h3>
+                                <p> Explore Python programming with a focus on data science and machine learning.</p>
+                            </div>
+                        </div>
+
                     </div> 
                     <div class="content-container" style="background-color: #71C285;">
                         <div class="content-inside-container">
@@ -84,9 +106,37 @@
                                 <img src="Images/image 8.png">
                             </div>
                             <div class="content-column-container">
-                                <h1>Course Title</h1>
-                                <h3>Enter State name</h3>
-                                <p> Descriptions</p>
+                                <h1>Bachelor's in Computer Science</h1>
+                                <h3>Undergraduate</h3>
+                                <p> A comprehensive program covering algorithms, software engineering, and data structures.</p>
+                            </div>
+                        </div>
+                        <div class="content-inside-container">
+                            <div class="content-column-container">
+                                <div class="title-container">
+                                    <img src="Images/titledesign.png">
+                                    <h2>edX</h2>
+                                </div>
+                                <img src="">
+                            </div>
+                            <div class="content-column-container">
+                                <h1>Master's in Business Administration (MBA)</h1>
+                                <h3>Graduate</h3>
+                                <p> Focus on strategic management, financial analysis, and organizational leadership.</p>
+                            </div>
+                        </div>
+                        <div class="content-inside-container">
+                            <div class="content-column-container">
+                                <div class="title-container">
+                                    <img src="Images/titledesign.png">
+                                    <h2>Udacity</h2>
+                                </div>
+                                <img src="">
+                            </div>
+                            <div class="content-column-container">
+                                <h1>Bachelor's in Data Science</h1>
+                                <h3>Undergraduate</h3>
+                                <p> Learn data analysis, machine learning, and statistical methods.</p>
                             </div>
                         </div>
                     </div> 
@@ -121,14 +171,44 @@
                             <div class="content-column-container">
                                 <div class="title-container">
                                     <img src="Images/titledesign.png">
-                                    <h2>COURSERA</h2>
+                                    <h2>LinkedIn Learning</h2>
                                 </div>
-                                <img src="Images/image 8.png">
+                                <img src="">
                             </div>
                             <div class="content-column-container">
-                                <h1>Course Title</h1>
-                                <h3>Enter State name</h3>
-                                <p> Descriptions</p>
+                                <h1>Certified Information Security Manager (CISM)</h1>
+                                <h3>Professional</h3>
+                                <p> Prepare for the CISM exam, focusing on information risk management.</p>
+                            </div>
+                        </div>
+
+                        <div class="content-inside-container">
+                            <div class="content-column-container">
+                                <div class="title-container">
+                                    <img src="Images/titledesign.png">
+                                    <h2>CompTIA</h2>
+                                </div>
+                                <img src="">
+                            </div>
+                            <div class="content-column-container">
+                                <h1>CompTIA Network+ Certification</h1>
+                                <h3>Professional</h3>
+                                <p>Learn networking fundamentals and prepare for the Network+ exam.</p>
+                            </div>
+                        </div>
+
+                        <div class="content-inside-container">
+                            <div class="content-column-container">
+                                <div class="title-container">
+                                    <img src="Images/titledesign.png">
+                                    <h2>Cisco</h2>
+                                </div>
+                                <img src="">
+                            </div>
+                            <div class="content-column-container">
+                                <h1>Cisco Certified Network Associate (CCNA)</h1>
+                                <h3>Professional</h3>
+                                <p> Develop networking skills to pass the CCNA certification and work with Cisco networks.</p>
                             </div>
                         </div>
                     </div> 
@@ -137,22 +217,50 @@
                             <div class="content-column-container">
                                 <div class="title-container">
                                     <img src="Images/titledesign.png">
-                                    <h2>COURSERA</h2>
+                                    <h2>MasterClass</h2>
                                 </div>
-                                <img src="Images/image 8.png">
+                                <img src="">
                             </div>
                             <div class="content-column-container">
-                                <h1>Course Title</h1>
-                                <h3>Enter State name</h3>
-                                <p> Descriptions</p>
+                                <h1>Introduction to Culinary Arts</h1>
+                                <h3>Beginner</h3>
+                                <p> Learn essential cooking skills from world-renowned chefs.</p>
+                            </div>
+                        </div>
+
+                        <div class="content-inside-container">
+                            <div class="content-column-container">
+                                <div class="title-container">
+                                    <img src="Images/titledesign.png">
+                                    <h2>Udemy</h2>
+                                </div>
+                                <img src="">
+                            </div>
+                            <div class="content-column-container">
+                                <h1>3D Modeling and Animation</h1>
+                                <h3>Intermediate</h3>
+                                <p> Create 3D models and animations using popular software like Blender.</p>
+                            </div>
+                        </div>
+
+                        <div class="content-inside-container">
+                            <div class="content-column-container">
+                                <div class="title-container">
+                                    <img src="Images/titledesign.png">
+                                    <h2>COURSERA</h2>
+                                </div>
+                                <img src="">
+                            </div>
+                            <div class="content-column-container">
+                                <h1>Digital Photography Essentials</h1>
+                                <h3>Beginner</h3>
+                                <p> Learn photography fundamentals, including lighting, framing, and editing.</p>
                             </div>
                         </div>
                     </div> 
                 </div>
             </div>
-
-            
-
+        </div>
     </div>
 </body>
 </html>

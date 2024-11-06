@@ -75,3 +75,64 @@ function expandDiamond(element) {
         activeContent.style.display = 'block'; // Show the content container
     }
 }
+
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  // Function to dynamically load courses based on selected tab
+async function loadCourses(tab) {
+    // Clear previous active classes
+    document.querySelectorAll(".tab button").forEach(button => button.classList.remove("active"));
+    tab.classList.add("active");
+
+    const category = tab.getAttribute("data-category"); // Get category (e.g., Recommended, Required)
+
+    // Fetch course data based on category
+    const response = await fetch(`/api/courses?category=${category}`);
+    const courses = await response.json(); // Assuming you get an array of courses
+    
+    // Build HTML content based on courses data
+    const contentContainer = document.getElementById("courses-content");
+    contentContainer.innerHTML = ''; // Clear previous content
+
+    courses.forEach(course => {
+        contentContainer.innerHTML += `
+            <div class="column-container">
+                <div class="content-container" style="background-color: ${course.color}; border: 4px solid ${course.borderColor};">
+                    <div class="content-inside-container" onclick="openModal('${course.title}', '${course.image}', '${course.state}', '${course.description}')">
+                        <div class="content-column-container">
+                            <div class="title-container">
+                                <img src="Images/titledesign.png">
+                                <h2>${course.platform}</h2>
+                            </div>
+                            <img src="${course.image}" alt="${course.title}">
+                        </div>
+                        <div class="content-column-container">
+                            <h1>${course.title}</h1>
+                            <h3>${course.state}</h3>
+                            <p>${course.description}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+// Set "Required" as the default load for the tab
+document.addEventListener("DOMContentLoaded", () => {
+    const defaultTab = document.querySelector('.tab button[data-category="Required"]');
+    loadCourses(defaultTab);
+});
+
