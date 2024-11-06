@@ -16,37 +16,30 @@
             height: 100vh; /* Full height of the viewport */
             background-color: #f0f0f0;
         }
-        .sidebar {
-            width: 15%;
-            background-color: #7e2275;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: white;
-        }
         .content {
-            width: 90%; /* Adjusted to occupy full width */
+            width: 100%; /* Adjusted to occupy full width */
             background-color: white;
             padding: 30px;
             overflow: auto; /* Enable scrolling if content exceeds view */
         }
         .content .header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
         }
         .content .header h1 {
             font-size: 2rem;
-            color: #f50057;
+            color: #db1f90;
+            margin: 0; /* Remove default margin for the h1 */
+            margin-right: 10px; /* Space between the title and insights */
         }
-        .content .header .insights-btn {
-            background-color: #00cc66;
+        .content .header p {
+            background-color: #36ad5e;
             color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 20px;
             cursor: pointer;
+            margin-top: 25px; /* Adjust this value to lower the "Insights" text */
         }
         .career-info {
             display: flex;
@@ -55,7 +48,7 @@
         }
         .career-path {
             flex: 1;
-            background-color: #9b90de;
+            background: linear-gradient(to bottom, #503ec6, #ffffff);
             padding: 20px;
             position: relative;
         }
@@ -105,7 +98,7 @@
         .full-width-content {
             margin-top: 30px; /* Space above the full-width content */
             padding: 20px;
-            background-color: rgb(141, 96, 238); /* Background color for the full-width content */
+            background: linear-gradient(to bottom, #503ec6, #ffffff);
         }
         .current-job-info {
             display: flex;
@@ -132,33 +125,39 @@
             background-color: white; /* Background color */
             border-radius: 15px;
         }
-        
         .timeline {
             position: relative;
             margin: 20px 0;
             margin-left: 50px;
         }
-        
         .timeline-item {
             display: flex;
             align-items: center;
             margin-bottom: 50px;
         }
         .circle {
-            width: 40px;
-            height: 40px;
-            background-color: #4a90e2;
-            border-radius: 50%;
-            margin-right: 20px;
+            width: 40px; /* Circle size */
+            height: 40px; /* Circle size */
+            background-color: #3B59FB; /* Circle color */
+            border-radius: 50%; /* Makes it a circle */
+            margin-right: 20px; /* Space between circle and triangle */
+        }
+        .trianglePCP {
+            width: 0; /* No width */
+            height: 0; /* No height */
+            border-left: 15px solid #aab7fd; /* Right-pointing triangle color */
+            border-top: 15px solid transparent; /* Triangle top */
+            border-bottom: 15px solid transparent; /* Triangle bottom */
+            margin-right: 15px; /* Space between triangle and content */
         }
         .career-path-content {
-            background-color: white;
-            padding: 10px 20px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            width: 80%;
+            background-color: white; /* Content background color */
+            padding: 10px 20px; /* Content padding */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            width: 80%; /* Content width */
+            box-shadow: 10px 10px 10px #e6d9ff; /* Horizontal offset, Vertical offset, Blur radius, Color */
         }
-        
         .career-path-content p {
             margin: 0;
             font-size: 1.2rem;
@@ -195,6 +194,14 @@
             border-radius: 50%;
             margin-right: 20px;
         }
+        .steps-triangle {
+            width: 0; /* No width */
+            height: 0; /* No height */
+            border-left: 10px solid #ffd3a0; /* Right-pointing triangle color */
+            border-top: 10px solid transparent; /* Triangle top */
+            border-bottom: 10px solid transparent; /* Triangle bottom */
+            margin-right: 10px; /* Space between triangle and content */
+        }
         .steps-path-content {
             background-color: white;
             padding: 10px 20px;
@@ -216,7 +223,7 @@
         .circle1, .circle2 {
             width: 40px;               /* Circle width */
             height: 40px;              /* Circle height */
-            background-color: blue;    /* Circle background color */
+            background-color: #3b59fb;    /* Circle background color */
             border-radius: 50%;        /* Make it a circle */
             display: flex;             /* Enable flexbox for the circles */
             justify-content: center;    /* Center horizontally */
@@ -236,7 +243,7 @@
         .circle3, .circle4 {
             width: 40px;               /* Circle width */
             height: 40px;              /* Circle height */
-            background-color: blue;    /* Circle background color */
+            background-color: #3b59fb;    /* Circle background color */
             border-radius: 50%;        /* Make it a circle */
             display: flex;             /* Enable flexbox for the circles */
             justify-content: center;    /* Center horizontally */
@@ -251,7 +258,7 @@
         .circle5{
             width: 40px;               /* Circle width */
             height: 40px;              /* Circle height */
-            background-color: blue;    /* Circle background color */
+            background-color: #3B59FB;    /* Circle background color */
             border-radius: 50%;        /* Make it a circle */
             display: flex;             /* Enable flexbox for the circles */
             justify-content: center;    /* Center horizontally */
@@ -268,7 +275,7 @@
         .circle6, .circle7 {
             width: 40px;               /* Circle width */
             height: 40px;              /* Circle height */
-            background-color: blue;    /* Circle background color */
+            background-color: #aab7fd;    /* Circle background color */
             border-radius: 50%;        /* Make it a circle */
             display: flex;             /* Enable flexbox for the circles */
             justify-content: center;    /* Center horizontally */
@@ -290,7 +297,7 @@
             height: 0;
             border-left: 25px solid transparent;
             border-right: 25px solid transparent;
-            border-top: 40px solid #8B9DFD; /* Green triangle color */
+            border-top: 40px solid #8b9dfd; /* Green triangle color */
             cursor: pointer;
             margin-left: 50px;
             margin-right: 542px;
@@ -321,7 +328,7 @@
             height: 0;
             border-left: 25px solid transparent;
             border-right: 25px solid transparent;
-            border-top: 40px solid #8B9DFD; /* Green triangle color */
+            border-top: 40px solid #8b9dfd; /* Green triangle color */
             cursor: pointer;
             margin-left: 295px;
             margin-right: 0px;
@@ -330,13 +337,10 @@
 </head>
 <body>
 
-    <div class="sidebar">
-    </div>
-
     <div class="content">
         <div class="header">
             <h1 style="font-size: 4rem;">Career</h1>
-            <button class="insights-btn">Insights</button>
+            <p>Insights</p>
         </div>
 
         <div class="career-info">
@@ -359,7 +363,7 @@
                     <div class="triangle-button5"></div> 
                     <br>
                 </div>
-                <hr style="border: none; height: 5px; background-color: purple; width: 100%;">
+                <hr style="border: none; height: 5px; background-color: #8b9dfd; width: 100%;">
                 <div class="triangle-container2">
                     <div class="triangle-button3"></div> 
                     <div class="triangle-button4"></div> 
@@ -368,12 +372,7 @@
                 <div class="circle-container3">
                     <div class="circle6"></div>
                     <div class="circle7"></div>
-                </div>
-                
-                
-                
-
-                
+                </div>                
             </div>
 
             <div class="job-recommendation">
@@ -413,7 +412,7 @@
                     <div style="border-left: 5px solid white; height: 100px; margin-left: 650px; margin-top: -100px;"></div>
                 </div>
             </div>
-                <hr style="border: none; height: 5px; background-color: purple; width: 100%;">
+                <hr style="border: none; height: 5px; background-color: #8b9dfd; width: 100%;">
                 <br>
                 <div class="triangle-container2">
                     <div class="triangle-button3"></div> 
@@ -459,30 +458,34 @@
         <div class="potential-career-path">
             <h2 style="color: purple; text-align: center;">Potential Career Path</h2>
             <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="circle"></div>
-                        <div class="career-path-content">
-                            <p>Potential Career Path 01</p>
-                        </div>
+                <div class="timeline-item">
+                    <div class="circle"></div>
+                    <div class="trianglePCP"></div>
+                    <div class="career-path-content">
+                        <p>Potential Career Path 01</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="circle"></div>
-                        <div class="career-path-content">
-                            <p>Potential Career Path 02</p>
-                        </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="circle"></div>
+                    <div class="trianglePCP"></div>
+                    <div class="career-path-content">
+                        <p>Potential Career Path 02</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="circle"></div>
-                        <div class="career-path-content">
-                            <p>Potential Career Path 03</p>
-                        </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="circle"></div>
+                    <div class="trianglePCP"></div>
+                    <div class="career-path-content">
+                        <p>Potential Career Path 03</p>
                     </div>
-                    <div class="timeline-item">
-                        <div class="circle"></div>
-                        <div class="career-path-content">
-                            <p>Potential Career Path 04</p>
-                        </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="circle"></div>
+                    <div class="trianglePCP"></div>
+                    <div class="career-path-content">
+                        <p>Potential Career Path 04</p>
                     </div>
+                </div>
             </div>
 
             <br>
@@ -506,24 +509,28 @@
                     <br>
                     <div class="steps-item">
                         <div class="steps-circle"></div>
+                        <div class="steps-triangle"></div>
                         <div class="steps-path-content">
                             <p>Find A Resource</p>
                         </div>
                     </div>
                     <div class="steps-item">
                         <div class="steps-circle"></div>
+                        <div class="steps-triangle"></div>
                         <div class="steps-path-content">
                             <p>Enroll in a Course</p>
                         </div>
                     </div>
                     <div class="steps-item">
                         <div class="steps-circle"></div>
+                        <div class="steps-triangle"></div>
                         <div class="steps-path-content">
                             <p>Apply & Send</p>
                         </div>
                     </div>
                     <div class="steps-item">
                         <div class="steps-circle"></div>
+                        <div class="steps-triangle"></div>
                         <div class="steps-path-content">
                             <p>Consult Workers</p>
                         </div>
@@ -564,6 +571,5 @@
             }
         }
     </script>
-
 </body>
 </html>
